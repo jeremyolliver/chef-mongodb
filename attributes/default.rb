@@ -44,6 +44,9 @@ default[:mongodb][:init_script_template] = "mongodb.init.erb"
 
 default[:mongodb][:arbiter] = false
 
+default[:mongodb][:replicaset][:identifier] = "recipes:mongodb\\:\\:replicaset"
+default[:mongodb][:shard][:identifier]      = "recipes:mongodb\\:\\:shard"
+
 case node['platform']
 when "freebsd"
   default[:mongodb][:defaults_dir] = "/etc/rc.conf.d"
