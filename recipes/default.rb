@@ -30,11 +30,13 @@ if needs_mongo_gem
   current_version = Gem::Version.new(Chef::VERSION)
   if(current_version < Gem::Version.new('10.12.0'))
     gem_package 'mongo' do
+      version node['mongodb']['gem_version']
       action :nothing
     end.run_action(:install)
     Gem.clear_paths
   else
     chef_gem 'mongo' do
+      version node['mongodb']['gem_version']
       action :install
     end
   end
