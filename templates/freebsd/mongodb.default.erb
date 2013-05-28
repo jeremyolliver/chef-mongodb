@@ -20,6 +20,14 @@ DAEMON_OPTS="$DAEMON_OPTS --bind_ip <%= @bind_ip %>"
 DAEMON_OPTS="$DAEMON_OPTS --replSet <%= @replicaset_name %>"
 <% end %>
 
+<% if @nojournal %>
+DAEMON_OPTS="$DAEMON_OPTS --nojournal"
+<% end %>
+
+<% if @smallfiles %>
+DAEMON_OPTS="$DAEMON_OPTS --smallfiles"
+<% end %>
+
 <% if @enable_rest %>
 DAEMON_OPTS="$DAEMON_OPTS --rest"
 <% end %>
